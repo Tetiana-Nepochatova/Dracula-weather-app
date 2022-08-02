@@ -20,6 +20,26 @@
       <div class="wrapper">
         <div class="weather-app">
           <div class="row">
+            <div class="col-6">
+              <form id="search-form">
+                  <input
+                    type="search"
+                    placeholder="Type a city name, please"
+                    class="form-control"
+                    id = "city-input"
+                    autocomplete="off"
+                  />
+            </div>
+              <div class="col">
+                <input type="submit" value="Search" class="btn btn-success" id="search-button"/>
+              </div>
+            </form>
+            <div class="col">
+              <button class="btn btn-primary" id="current-button">Current</button>
+            </div>
+          </div>
+        <hr>
+          <div class="row">
             <div class="col-5">
               <h1 id="city"></h1>
               <div id="date"></div>
