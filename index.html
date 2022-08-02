@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>Dracula weather app</title>
   </head>
@@ -20,7 +21,7 @@
         <div class="weather-app">
           <div class="row">
             <div class="col-5">
-              <h1>Kremenchuk</h1>
+              <h1 id="city"></h1>
               <ul>
                 <li>Friday 05:00</li>
                 <li>1 August</li>
@@ -30,15 +31,15 @@
               <ul>
                 <li>Here will be image</li>
                 <li class="today-celcius">
-                  <span id="today-temperature">12</span>°C
+                  <span id="temperature">12</span>°C
                 </li>
               </ul>
             </div>
             <div class="col-4">
               <ul>
-                <li>Feel like: 31° C</li>
-                <li>Humidity: 54%</li>
-                <li>Wind: 2 km/h</li>
+                <li>Feel like: <span id="feel"></span>° C</li>
+                <li>Humidity: <span id="humidity"></span> %</li>
+                <li>Wind: <span id="wind"></span> km/h</li>
               </ul>
             </div>
           </div>
