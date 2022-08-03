@@ -34,7 +34,7 @@ hr {
 }
 
 #date {
-  color: #50fa7b;
+  color: #f8f8f2;
 }
 
 .wrapper {
@@ -44,7 +44,7 @@ hr {
 .weather-app {
   padding: 20px;
   background-color: #282a36;
-  color: white;
+  color: #f8f8f2;
   border-radius: 10px;
 }
 
@@ -92,6 +92,7 @@ hr {
 
 .weather-forecast-date {
   font-size: 16px;
+  color: #50fa7b;
 }
 
 .weather-forecast-temperature {
@@ -103,4 +104,15 @@ hr {
 
 .weather-forecast-temperature-min {
   color: #bd93f9;
+}
+
+#wind {
+  color: #bd93f9;
+}
+
+#humidity {
+  color: #50fa7b;
+}
+#feel {
+  color: #ff79c6;
 }

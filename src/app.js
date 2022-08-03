@@ -39,6 +39,29 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes} </br> ${date} ${month} ${year}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+      <div class="weather-forecast-date">${day}</div>
+      <img src="http://openweathermap.org/img/wn/50d@2x.png" width="42" />
+      <div class="weather-forecast-temperature">
+        <span class="weather-forecast-temperature-max">18° </span>
+        <span class="weather-forecast-temperature-min">12°</span>
+      </div>
+    </div>
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector(`#temperature`);
   let cityElement = document.querySelector(`#city`);
@@ -47,6 +70,7 @@ function displayTemperature(response) {
   let windElement = document.querySelector(`#wind`);
   let dateElement = document.querySelector(`#date`);
   let iconElement = document.querySelector(`#icon`);
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   feelElement.innerHTML = Math.round(response.data.main.feels_like);
@@ -72,6 +96,7 @@ function handleSubmit(event) {
 }
 
 search("New York");
+displayForecast();
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
