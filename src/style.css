@@ -106,13 +106,12 @@ hr {
   color: #bd93f9;
 }
 
-#wind {
-  color: #bd93f9;
+#feel {
+  color: #ff79c6;
 }
-
 #humidity {
   color: #50fa7b;
 }
-#feel {
-  color: #ff79c6;
+#wind {
+  color: #bd93f9;
 }
