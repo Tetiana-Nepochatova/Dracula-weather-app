@@ -42,7 +42,7 @@ function formatDate(timestamp) {
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "San"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[day];
 }
@@ -52,7 +52,6 @@ function displayForecast(response) {
 
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
@@ -81,7 +80,6 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = `7606e398d85035b10d42b33b84e4a65a`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
@@ -122,7 +120,22 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-search("New York");
+search("Kremenchuk");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+function showCurrentLocationWeather() {
+  navigator.geolocation.getCurrentPosition(getLocation);
+}
+
+function getLocation(position) {
+  let apiKey = `7606e398d85035b10d42b33b84e4a65a`;
+  let lon = position.coords.longitude;
+  let lat = position.coords.latitude;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+let currentBtn = document.querySelector("#current-button");
+currentBtn.addEventListener("click", showCurrentLocationWeather);
